@@ -12,17 +12,6 @@ Text Domain: the7mk2-child
 Template: dt-the7
 */
 
-/* Make images for subscription producs disappear in product listing */
-.product-type-subscription div.buttons-on-img.hover-ready.woo-ready  {
-  display: none;
-}
-
-/* Make images for subscription producs disappear in product view
-.product-type-subscription img {
-display: none;
-}
-*/
-
 /*************************************************
 *
 * BUDDY PRESS THINGYS
