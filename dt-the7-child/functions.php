@@ -11,6 +11,50 @@ function theme_enqueue_styles() {
 
 }
 
+
+/*******************************************************************************
+*
+* WooCommerce Social Login
+* https://docs.woothemes.com/document/woocommerce-social-login-developer-docs/
+*
+******************************************************************************/
+
+// Adds login buttons to the wp-login.php pages
+add_action( 'login_form', 'kmpl_add_wc_social_login_buttons_wplogin' );
+add_action( 'register_form', 'kmpl_add_wc_social_login_buttons_wplogin' );
+function kmpl_add_wc_social_login_buttons_wplogin() {
+	// Displays login buttons to non-logged in users + redirect back to login
+	woocommerce_social_login_buttons();
+}
+
+add_filter('wc_social_login_google_new_user_data', 'kmpl_wc_social_login_new_user_better_data', 10, 2);
+add_filter('wc_social_login_facebook_new_user_data', 'kmpl_wc_social_login_new_user_better_data', 10, 2);
+add_filter('wc_social_login_linkedin_new_user_data', 'kmpl_wc_social_login_new_user_better_data', 10, 2);
+add_filter('wc_social_login_yahoo_new_user_data', 'kmpl_wc_social_login_new_user_better_data', 10, 2);
+add_filter('wc_social_login_disqus_new_user_data', 'kmpl_wc_social_login_new_user_better_data', 10, 2);
+add_filter('wc_social_login_twitter_new_user_data', 'kmpl_wc_social_login_new_user_better_data', 10, 2);
+add_filter('wc_social_login_instagram_new_user_data', 'kmpl_wc_social_login_new_user_better_data', 10, 2);
+function kmpl_wc_social_login_new_user_better_data($userdata, $profile) {
+  $username = $profile->get_nickname();
+  if (empty($username)) {
+    $username = $profile->get_first_name();
+  }
+  if (empty($username)) {
+    $username = sanitize_email($profile->get_email());
+  }
+
+  $userdata = array(
+    'role'       => get_option('default_role'),
+    'user_login' => strtolower($username),
+    'user_email' => $profile->get_email(),
+    'user_pass'  => wp_generate_password(),
+    'first_name' => $profile->get_first_name(),
+    'last_name'  => $profile->get_last_name(),
+  );
+  return $userdata;
+}
+
+
 /*******************************************************************************
 *
 * BuddyPress stuffs
