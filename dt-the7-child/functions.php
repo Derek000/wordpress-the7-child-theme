@@ -14,6 +14,19 @@ function theme_enqueue_styles() {
 
 /*******************************************************************************
 *
+* The Events Calendar
+* https://docs.woothemes.com/document/woocommerce-social-login-developer-docs/
+*
+******************************************************************************/
+add_action( 'tribe_events_list_widget_before_the_event_title', 'custom_widget_featured_image' );
+function custom_widget_featured_image() {
+	global $post;
+
+	echo tribe_event_featured_image( $post->ID, 'thumbnail' );
+}
+
+/*******************************************************************************
+*
 * WooCommerce Social Login
 * https://docs.woothemes.com/document/woocommerce-social-login-developer-docs/
 *
