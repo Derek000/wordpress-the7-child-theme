@@ -24,9 +24,6 @@ $set_venue_apart = apply_filters( 'tribe_events_single_event_the_meta_group_venu
 <?php
 do_action( 'tribe_events_single_event_meta_primary_section_start' );
 
-// Always include the main event details in this first section
-tribe_get_template_part( 'modules/meta/details' );
-
 // If we have no map to embed and no need to keep the venue separate...
 if ( ! $set_venue_apart && ! tribe_embed_google_map() ) {
 	tribe_get_template_part( 'modules/meta/venue' );

@@ -22,19 +22,12 @@ $event_id = get_the_ID();
 ?>
 
 <div id="tribe-events-content" class="tribe-events-single">
-
-	<p class="tribe-events-back">
-		<a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html__( 'All %s', 'the-events-calendar' ), $events_label_plural ); ?></a>
-	</p>
-
+  
 	<!-- Notices -->
 	<?php tribe_the_notices() ?>
 
 	<?php the_title( '<h1 class="tribe-events-single-event-title">', '</h1>' ); ?>
 
-	<div class="tribe-events-schedule tribe-clearfix">
-		<?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); ?>
-	</div>
 
 	<!-- Event header -->
 	<div id="tribe-events-header" <?php tribe_events_the_header_attributes() ?>>
@@ -50,8 +43,9 @@ $event_id = get_the_ID();
 
 	<?php while ( have_posts() ) :  the_post(); ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<!-- Event featured image, but exclude link -->
-			<?php echo tribe_event_featured_image( $event_id, 'full', false ); ?>
+
+			<!-- Event meta -->
+			<?php tribe_get_template_part( 'modules/meta-top' ); ?>
 
 			<!-- Event content -->
 			<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
@@ -63,7 +57,7 @@ $event_id = get_the_ID();
 
 			<!-- Event meta -->
 			<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
-			<?php tribe_get_template_part( 'modules/meta' ); ?>
+			<?php tribe_get_template_part( 'modules/meta-bottom' ); ?>
 			<?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
 		</div> <!-- #post-x -->
 		<?php if ( get_post_type() == Tribe__Events__Main::POSTTYPE && tribe_get_option( 'showComments', false ) ) comments_template() ?>
