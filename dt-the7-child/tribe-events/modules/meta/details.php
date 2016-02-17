@@ -17,8 +17,8 @@ $start_date = tribe_get_start_date( null, false );
 $start_time = tribe_get_start_date( null, false, $time_format );
 $start_ts = tribe_get_start_date( null, false, Tribe__Date_Utils::DBDATEFORMAT );
 $start_datetime_time_tag_attr = tribe_get_start_date(null, true, 'Y-m-d H:i');
-$start_ts_meta = tribe_get_start_date(null, true, 'c');
-$end_ts_meta = tribe_get_end_date(null, true, 'c');
+$start_ts_meta = tribe_get_start_date(null, true, 'c', "UTC");
+$end_ts_meta = tribe_get_end_date(null, true, 'c', "UTC");
 
 $end_datetime = tribe_get_end_date();
 $end_date = tribe_get_display_end_date( null, false );

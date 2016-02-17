@@ -26,7 +26,7 @@ $venue_id = get_the_ID();
 $full_region = tribe_get_full_region( $venue_id );
 
 ?>
-<span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" class="tribe-address">
+<div class="tribe-address" itemscope="" itemtype="http://schema.org/PostalAddress">
 
 <?php
 // This location's street address.
@@ -64,4 +64,4 @@ if ( tribe_get_country( $venue_id ) ) : ?>
 	<span itemprop="addressCountry" class="tribe-country-name"><?php echo tribe_get_country( $venue_id ); ?></span>
 <?php endif; ?>
 
-</span>
+</div> <!-- End of item type PostalAddress -->
