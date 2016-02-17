@@ -37,7 +37,7 @@ add_action( 'login_form', 'kmpl_add_wc_social_login_buttons_wplogin' );
 add_action( 'register_form', 'kmpl_add_wc_social_login_buttons_wplogin' );
 function kmpl_add_wc_social_login_buttons_wplogin() {
 	// Displays login buttons to non-logged in users + redirect back to login
-	woocommerce_social_login_buttons();
+	// woocommerce_social_login_buttons();
 }
 
 add_filter('wc_social_login_google_new_user_data', 'kmpl_wc_social_login_new_user_better_data', 10, 2);
