@@ -45,8 +45,9 @@ $event_id = get_the_ID();
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<!-- Event meta -->
+<div class="skeventsmax">
 			<?php tribe_get_template_part( 'modules/meta-top' ); ?>
-
+</div><!-- end skeventsmax -->
 			<!-- Event content -->
 			<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 			<div class="tribe-events-single-event-description tribe-events-content">
