@@ -43,13 +43,13 @@ if ( tribe_get_city( $venue_id ) ) :
 	if ( tribe_get_address( $venue_id ) ) : ?>
 		<br>
 	<?php endif; ?>
-	<span itemprop="addressLocality" class="tribe-locality"><?php echo tribe_get_city( $venue_id ); ?></span><span class="tribe-delimiter">,</span>
+	<span itemprop="addressLocality" class="tribe-locality"><?php echo tribe_get_city( $venue_id ); ?></span><span class="tribe-delimiter">, </span>
 <?php endif; ?>
 
 <?php
 // This location's abbreviated region. Full region name in the element title.
 if ( tribe_get_region( $venue_id ) ) : ?>
-	<abbr itemprop="addressRegion" class="tribe-region tribe-events-abbr" title="<?php esc_attr_e( $full_region ); ?>"><?php echo tribe_get_region( $venue_id ); ?></abbr>
+	<abbr itemprop="addressRegion" class="tribe-region tribe-events-abbr" title="<?php esc_attr_e( $full_region ); ?>"><?php echo tribe_get_region( $venue_id ); ?>, </abbr>
 <?php endif; ?>
 
 <?php
@@ -61,6 +61,7 @@ if ( tribe_get_zip( $venue_id ) ) : ?>
 <?php
 // This location's country.
 if ( tribe_get_country( $venue_id ) ) : ?>
+	<br/>
 	<span itemprop="addressCountry" class="tribe-country-name"><?php echo tribe_get_country( $venue_id ); ?></span>
 <?php endif; ?>
 
