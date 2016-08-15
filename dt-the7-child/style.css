@@ -21,6 +21,19 @@ Template: dt-the7
   text-shadow: 2px 2px 1px #000000;
 }
 
+article.post img {
+    display: inline;
+    float: left;
+    max-width: 300px !important;
+    width: auto;
+    height: auto;
+    padding: 15px;
+}
+
+blockquote {
+    overflow: hidden;
+}
+
 
 /*************************************************
 *
